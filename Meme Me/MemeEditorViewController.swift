@@ -21,16 +21,19 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         bottomTextField.delegate = self
         
         let memeTextAttributes = [
+            NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
             NSForegroundColorAttributeName: UIColor.whiteColor(),
             NSStrokeColorAttributeName: UIColor.blackColor(),
-            NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSStrokeWidthAttributeName: 2
+            NSStrokeWidthAttributeName: -3.0
         ]
         
+        
         topTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.textAlignment = NSTextAlignment.Center
         topTextField.attributedPlaceholder = NSAttributedString(string: "TOP", attributes: memeTextAttributes)
         
         bottomTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.textAlignment = NSTextAlignment.Center
         bottomTextField.attributedPlaceholder = NSAttributedString(string: "BOTTOM", attributes: memeTextAttributes)
     }
 

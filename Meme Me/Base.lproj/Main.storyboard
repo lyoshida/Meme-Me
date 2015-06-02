@@ -30,47 +30,15 @@
                                         <exclude reference="8pZ-5S-j9A"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="50" y="46" width="300" height="300"/>
                                     <mask key="constraints">
                                         <include reference="7Gg-2p-Vqx"/>
                                         <include reference="8pZ-5S-j9A"/>
                                     </mask>
                                 </variation>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="euh-tR-S5R">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <items>
-                                    <barButtonItem title="Pick a photo" id="cZp-nd-VbT">
-                                        <connections>
-                                            <action selector="pickingAnImage:" destination="vXZ-lx-hvc" id="mD4-vG-uNt"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="TOP" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="iDg-2f-5zW">
-                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="267" id="bZA-tu-A5V"/>
-                                    <constraint firstAttribute="height" constant="30" id="zWf-9l-tKb"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="bZA-tu-A5V"/>
-                                        <exclude reference="zWf-9l-tKb"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="bZA-tu-A5V"/>
-                                        <include reference="zWf-9l-tKb"/>
-                                    </mask>
-                                </variation>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="BOTTOM" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8jc-Gw-4t5">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8jc-Gw-4t5">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -90,6 +58,39 @@
                                     <mask key="constraints">
                                         <include reference="Qm5-WU-pay"/>
                                         <include reference="mcQ-fI-p0n"/>
+                                    </mask>
+                                </variation>
+                            </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="euh-tR-S5R">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem title="Pick a photo" id="cZp-nd-VbT">
+                                        <connections>
+                                            <action selector="pickingAnImage:" destination="vXZ-lx-hvc" id="mD4-vG-uNt"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="iDg-2f-5zW">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="267" id="bZA-tu-A5V"/>
+                                    <constraint firstAttribute="height" constant="30" id="zWf-9l-tKb"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="bZA-tu-A5V"/>
+                                        <exclude reference="zWf-9l-tKb"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="bZA-tu-A5V"/>
+                                        <include reference="zWf-9l-tKb"/>
                                     </mask>
                                 </variation>
                             </textField>
@@ -115,9 +116,9 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="KsS-Nz-WfD"/>
+                                <exclude reference="8jc-Gw-4t5"/>
                                 <exclude reference="euh-tR-S5R"/>
                                 <exclude reference="iDg-2f-5zW"/>
-                                <exclude reference="8jc-Gw-4t5"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="SSA-v3-Fh5"/>
@@ -140,9 +141,9 @@
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="KsS-Nz-WfD"/>
+                                <include reference="8jc-Gw-4t5"/>
                                 <include reference="euh-tR-S5R"/>
                                 <include reference="iDg-2f-5zW"/>
-                                <include reference="8jc-Gw-4t5"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="SSA-v3-Fh5"/>
