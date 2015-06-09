@@ -42,15 +42,15 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="gFm-qY-Weg"/>
                                         <exclude reference="bc6-la-w3B"/>
+                                        <exclude reference="gFm-qY-Weg"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="67" y="91" width="267" height="30"/>
                                     <mask key="constraints">
-                                        <include reference="gFm-qY-Weg"/>
                                         <include reference="bc6-la-w3B"/>
+                                        <include reference="gFm-qY-Weg"/>
                                     </mask>
                                 </variation>
                             </textField>
@@ -66,15 +66,15 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="iw6-kZ-Oq0"/>
                                         <exclude reference="RlU-tQ-KrX"/>
+                                        <exclude reference="iw6-kZ-Oq0"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="67" y="285" width="267" height="30"/>
                                     <mask key="constraints">
-                                        <include reference="iw6-kZ-Oq0"/>
                                         <include reference="RlU-tQ-KrX"/>
+                                        <include reference="iw6-kZ-Oq0"/>
                                     </mask>
                                 </variation>
                             </textField>
