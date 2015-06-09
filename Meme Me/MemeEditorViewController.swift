@@ -21,13 +21,14 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         topTextField.delegate = self
         bottomTextField.delegate = self
         
+        // Set text properties
+        
         let memeTextAttributes = [
             NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
             NSForegroundColorAttributeName: UIColor.whiteColor(),
             NSStrokeColorAttributeName: UIColor.blackColor(),
             NSStrokeWidthAttributeName: -3.0
         ]
-        
         
         topTextField.defaultTextAttributes = memeTextAttributes
         topTextField.textAlignment = NSTextAlignment.Center
@@ -36,6 +37,20 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         bottomTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.textAlignment = NSTextAlignment.Center
         bottomTextField.attributedPlaceholder = NSAttributedString(string: "BOTTOM", attributes: memeTextAttributes)
+        
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.subscribeToKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.unsubscribeFromKeyboardNotifications()
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,6 +89,40 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.view.endEditing(true)
+    }
+    
+    // Move the keyboard up when editing the bottom textfield
+    
+    func getKeyboardHeight(notification: NSNotification) -> Float {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        return Float(keyboardSize.CGRectValue().height)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if topTextField.isFirstResponder() != true {
+            self.view.frame.origin.y -= CGFloat(self.getKeyboardHeight(notification))
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        
+        if topTextField.isFirstResponder() != true {
+            self.view.frame.origin.y += CGFloat(self.getKeyboardHeight(notification))
+        }
+    }
+    
+    func subscribeToKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
 }
 

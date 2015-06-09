@@ -24,43 +24,6 @@
                                     <constraint firstAttribute="height" constant="350" id="aB4-s1-KWh"/>
                                 </constraints>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ly-1l-xBI">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="dDi-K7-qWF"/>
-                                </constraints>
-                                <items>
-                                    <barButtonItem title="Pick an Image" id="zfI-l8-zIB">
-                                        <connections>
-                                            <action selector="pickingAnImage:" destination="vXZ-lx-hvc" id="fFi-Hu-twI"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vR4-pE-1i5">
-                                <rect key="frame" x="125" y="116" width="350" height="30"/>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="bc6-la-w3B"/>
-                                    <constraint firstAttribute="width" constant="267" id="gFm-qY-Weg"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="bc6-la-w3B"/>
-                                        <exclude reference="gFm-qY-Weg"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="67" y="91" width="267" height="30"/>
-                                    <mask key="constraints">
-                                        <include reference="bc6-la-w3B"/>
-                                        <include reference="gFm-qY-Weg"/>
-                                    </mask>
-                                </variation>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="u3K-Xq-7WJ">
                                 <rect key="frame" x="131" y="482" width="350" height="30"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -85,6 +48,43 @@
                                     </mask>
                                 </variation>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vR4-pE-1i5">
+                                <rect key="frame" x="125" y="116" width="350" height="30"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="bc6-la-w3B"/>
+                                    <constraint firstAttribute="width" constant="267" id="gFm-qY-Weg"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="bc6-la-w3B"/>
+                                        <exclude reference="gFm-qY-Weg"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="67" y="91" width="267" height="30"/>
+                                    <mask key="constraints">
+                                        <include reference="bc6-la-w3B"/>
+                                        <include reference="gFm-qY-Weg"/>
+                                    </mask>
+                                </variation>
+                            </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ly-1l-xBI">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="dDi-K7-qWF"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Pick an Image" id="zfI-l8-zIB">
+                                        <connections>
+                                            <action selector="pickingAnImage:" destination="vXZ-lx-hvc" id="fFi-Hu-twI"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -94,7 +94,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="2ly-1l-xBI" secondAttribute="trailing" constant="-16" id="CbK-Lo-Mj7"/>
                             <constraint firstAttribute="centerX" secondItem="UQE-dd-Ccj" secondAttribute="centerX" id="E3w-ah-NqX"/>
                             <constraint firstItem="UQE-dd-Ccj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="10" id="PKU-cg-3hF"/>
-                            <constraint firstItem="UQE-dd-Ccj" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="10" id="Pat-NB-JYg"/>
+                            <constraint firstItem="UQE-dd-Ccj" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jyV-Pf-zRb" secondAttribute="bottom" priority="750" constant="10" id="Pat-NB-JYg"/>
                             <constraint firstAttribute="centerY" secondItem="UQE-dd-Ccj" secondAttribute="centerY" id="Rbi-Wm-MQr"/>
                             <constraint firstAttribute="centerX" secondItem="vR4-pE-1i5" secondAttribute="centerX" id="ZD3-Df-uld"/>
                             <constraint firstItem="UQE-dd-Ccj" firstAttribute="top" secondItem="vR4-pE-1i5" secondAttribute="bottom" constant="-50" id="bzc-pz-53p"/>
