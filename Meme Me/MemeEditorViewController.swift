@@ -13,6 +13,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var memeEditorNavigationBar: UINavigationBar!
+    @IBOutlet weak var memeEditorUIToolbar: UIToolbar!
+    @IBOutlet weak var shareMemeBarButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +40,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         bottomTextField.textAlignment = NSTextAlignment.Center
         bottomTextField.attributedPlaceholder = NSAttributedString(string: "BOTTOM", attributes: memeTextAttributes)
         
-        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.shareMemeBarButton.enabled = false
         
         self.subscribeToKeyboardNotifications()
     }
@@ -59,7 +63,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
 
 
     @IBAction func pickingAnImage(sender: AnyObject) {
-        
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
@@ -70,8 +73,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.imagePickerView.image = image
+            
+            // TODO: Why doesn't it work?
+            self.shareMemeBarButton.enabled = true
         }
-        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -126,15 +131,35 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     func saveMeme() {
         // TODO: Implement
+        
+        var meme = Meme(topMessage: self.topTextField.text, bottomMessage: self.bottomTextField.text, originalImage: self.imagePickerView.image!, memedImage: generateMemedImage())
+
+        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
     }
     
     func generateMemedImage() -> UIImage {
+        
+        self.memeEditorNavigationBar.hidden = true
+        self.memeEditorUIToolbar.hidden = true
+        
         UIGraphicsBeginImageContext(self.view.frame.size)
         self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
+        self.memeEditorUIToolbar.hidden = false
+        self.memeEditorUIToolbar.hidden = false
+        
         return memedImage
     }
+    
+    @IBAction func takePicture(sender: AnyObject) {
+        
+    }
+    
+    
+    @IBAction func shareMeme(sender: AnyObject) {
+    }
+    
 }
 
