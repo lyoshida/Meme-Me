@@ -95,10 +95,10 @@
 				E9B2B3C51B330DE4005A1D7D /* TableViewController.swift */,
 				E9B2B3C91B3314A3005A1D7D /* CollectionViewController.swift */,
 				E9B2B3CB1B3319D2005A1D7D /* CollectionViewCell.swift */,
+				E9B2B3C71B33100E005A1D7D /* MemeDetailViewController.swift */,
 				E9FA678A1B1E10F200B5A31C /* Main.storyboard */,
 				E9A118CD1B28A644006DBAC1 /* Meme.swift */,
 				E9FA678F1B1E10F200B5A31C /* LaunchScreen.xib */,
-				E9B2B3C71B33100E005A1D7D /* MemeDetailViewController.swift */,
 				E9FA678D1B1E10F200B5A31C /* Images.xcassets */,
 				E9FA67841B1E10F200B5A31C /* Supporting Files */,
 			);

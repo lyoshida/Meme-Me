@@ -33,7 +33,7 @@
         <!--Meme Detail View Controller-->
         <scene sceneID="Cdv-a1-Uli">
             <objects>
-                <viewController storyboardIdentifier="MemeDetailViewController" id="cpa-0w-9BZ" customClass="MemeDetailViewController" customModule="Meme_Me" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemeDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cpa-0w-9BZ" customClass="MemeDetailViewController" customModule="Meme_Me" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zFh-hr-OvR"/>
                         <viewControllerLayoutGuide type="bottom" id="W1n-NS-I8e"/>
@@ -60,12 +60,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OR9-XE-hoS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1672" y="436"/>
+            <point key="canvasLocation" x="1757" y="438"/>
         </scene>
         <!--Sent Memes-->
         <scene sceneID="eBK-5B-g8o">
             <objects>
-                <tableViewController id="XtT-SI-Bsv" sceneMemberID="viewController">
+                <tableViewController id="XtT-SI-Bsv" customClass="TableViewController" customModule="Meme_Me" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="peM-ul-xFx">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -87,10 +87,13 @@
                     <navigationItem key="navigationItem" title="Sent Memes" id="7LN-zb-rrw">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Vxl-tr-5Po">
                             <connections>
-                                <segue destination="vXZ-lx-hvc" kind="show" id="Fqi-VS-gjv"/>
+                                <action selector="newMeme:" destination="XtT-SI-Bsv" id="X4d-d2-54y"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="cpa-0w-9BZ" kind="show" id="WSV-kT-mAK"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xYK-nq-FLZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -133,7 +136,7 @@
         <!--Sent Memes-->
         <scene sceneID="n0X-YC-jsN">
             <objects>
-                <collectionViewController id="4Ng-DC-4bw" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="CollectionViewController" id="4Ng-DC-4bw" customClass="CollectionViewController" customModule="Meme_Me" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="bxE-IG-cMI" customClass="CollectionViewController">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -182,12 +185,11 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Sent Memes" id="bmf-MW-EkO">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wTV-dv-FVd">
-                            <connections>
-                                <segue destination="vXZ-lx-hvc" kind="show" id="bD7-DJ-q2E"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wTV-dv-FVd"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="cpa-0w-9BZ" kind="show" id="So4-dJ-Lhi"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q8K-Jq-uPS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -205,7 +207,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UQE-dd-Ccj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UQE-dd-Ccj">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="u3K-Xq-7WJ">
@@ -256,7 +258,7 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ly-1l-xBI">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ly-1l-xBI">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="dDi-K7-qWF"/>
@@ -277,7 +279,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="KDz-0T-1kf"/>
                                 </items>
                             </toolbar>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d16-vC-ajJ">
+                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d16-vC-ajJ">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <items>
                                     <navigationItem title="Meme Editor" id="jwR-zb-joJ">
@@ -288,7 +290,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="HT0-jr-jU5">
                                             <connections>
-                                                <segue destination="LAV-N2-8cm" kind="show" id="I1E-yB-1sc"/>
+                                                <segue destination="LAV-N2-8cm" kind="show" id="Pj3-py-FaY"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -334,6 +336,6 @@
         <image name="photo-album-icon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bD7-DJ-q2E"/>
+        <segue reference="WSV-kT-mAK"/>
     </inferredMetricsTieBreakers>
 </document>

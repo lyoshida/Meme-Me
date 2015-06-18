@@ -45,7 +45,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.shareMemeBarButton.enabled = false
+        if self.imagePickerView.image != nil {
+            self.shareMemeBarButton.enabled = true
+        } else {
+            self.shareMemeBarButton.enabled = false
+        }
+        
         
         self.subscribeToKeyboardNotifications()
     }
@@ -73,9 +78,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.imagePickerView.image = image
-            
-            // TODO: Why doesn't it work?
-            self.shareMemeBarButton.enabled = true
         }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -129,12 +131,14 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
     
-    func saveMeme() {
+    func saveMeme() -> Meme {
         // TODO: Implement
         
         var meme = Meme(topMessage: self.topTextField.text, bottomMessage: self.bottomTextField.text, originalImage: self.imagePickerView.image!, memedImage: generateMemedImage())
 
         (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
+        
+        return meme
     }
     
     func generateMemedImage() -> UIImage {
@@ -147,7 +151,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        self.memeEditorUIToolbar.hidden = false
+        self.memeEditorNavigationBar.hidden = false
         self.memeEditorUIToolbar.hidden = false
         
         return memedImage
@@ -159,6 +163,15 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     
     @IBAction func shareMeme(sender: AnyObject) {
+        var meme: Meme = saveMeme()
+        
+        let activityViewController = UIActivityViewController(activityItems: [meme.memedImage], applicationActivities: nil)
+        
+        self.presentViewController(activityViewController, animated: true, completion: nil)
+        
+//        let memeEditorViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
+//        
+//        self.presentViewController(memeEditorViewController, animated: true, completion: nil)
     }
     
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TableViewController: UITableViewController, UITableViewDataSource, UITableViewDelegate {
     
     var memes: [Meme]!
     
@@ -18,11 +18,11 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         memes = applicationDelegate.memes
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.memes.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MemeCell") as! UITableViewCell
         let meme = self.memes[indexPath.row]
         
@@ -32,7 +32,18 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        let detailViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
+        
+        detailViewController.meme = self.memes[indexPath.row]
+        self.navigationController!.pushViewController(detailViewController, animated: true)
+        
+    }
+    
+    @IBAction func newMeme(sender: UIBarButtonItem) {
+        let memeEditorViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
+        
+        self.presentViewController(memeEditorViewController, animated: true, completion: nil)
     }
 }
