@@ -13,4 +13,5 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var topTextField: UILabel!
     @IBOutlet weak var memeImageView: UIImageView!
     @IBOutlet weak var bottomTextField: UILabel!
+    
 }

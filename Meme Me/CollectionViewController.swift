@@ -28,8 +28,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewData
         
         cell.topTextField.text = meme.topMessage
         cell.bottomTextField.text = meme.bottomMessage
-        let imageView = UIImageView(image: meme.originalImage)
-        cell.memeImageView = imageView
+        cell.memeImageView.image = meme.originalImage
         
         return cell
     }
@@ -41,8 +40,12 @@ class CollectionViewController: UICollectionViewController, UICollectionViewData
         detailViewController.meme = self.memes[indexPath.item]
         
         self.navigationController!.pushViewController(detailViewController, animated: true)
+    }
+    
+    @IBAction func newMeme(sender: UIBarButtonItem) {
+        let memeEditorViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
         
-
+        self.presentViewController(memeEditorViewController, animated: true, completion: nil)
     }
     
 }
