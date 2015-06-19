@@ -11,7 +11,6 @@ import UIKit
 
 class SentMemeViewController : UIViewController {
     
-    
     var memes: [Meme]!
     
     override func viewWillAppear(animated: Bool) {

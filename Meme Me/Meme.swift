@@ -11,15 +11,15 @@ import UIKit
 
 struct Meme {
     
+    var topMessage: String
+    var bottomMessage: String
+    var originalImage: UIImage
+    var memedImage: UIImage
+    
     init(topMessage: String, bottomMessage: String, originalImage: UIImage, memedImage: UIImage) {
         self.topMessage = topMessage
         self.bottomMessage = bottomMessage
         self.originalImage = originalImage
         self.memedImage = memedImage
     }
-    
-    var topMessage: String
-    var bottomMessage: String
-    var originalImage: UIImage
-    var memedImage: UIImage
 }

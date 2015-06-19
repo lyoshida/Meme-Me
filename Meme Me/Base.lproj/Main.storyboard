@@ -272,7 +272,7 @@
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="YFa-if-7Qd"/>
                                     <barButtonItem image="camera-icon" id="P1l-P4-tHv">
                                         <connections>
-                                            <action selector="takeAPhoto:" destination="vXZ-lx-hvc" id="3Fb-ur-0B6"/>
+                                            <action selector="takeAPhoto:" destination="vXZ-lx-hvc" id="WCP-y0-uC5"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="KDz-0T-1kf"/>

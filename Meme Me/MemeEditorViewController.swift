@@ -42,6 +42,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         bottomTextField.attributedPlaceholder = NSAttributedString(string: "BOTTOM", attributes: memeTextAttributes)
         
         // Disables the camera button if its not available
+        
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         
     }
@@ -67,7 +68,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func takeAPhoto(sender: UIBarButtonItem) {
@@ -141,8 +141,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
     
+    // Saves a Meme object
     func saveMeme() -> Meme {
-        // TODO: Implement
         
         var meme = Meme(topMessage: self.topTextField.text, bottomMessage: self.bottomTextField.text, originalImage: self.imagePickerView.image!, memedImage: generateMemedImage())
 
@@ -151,6 +151,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         return meme
     }
     
+    // Generates a Memed Image
     func generateMemedImage() -> UIImage {
         
         self.memeEditorNavigationBar.hidden = true
@@ -167,21 +168,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         return memedImage
     }
     
-    @IBAction func takePicture(sender: AnyObject) {
-        
-    }
-    
-    
     @IBAction func shareMeme(sender: AnyObject) {
         var meme: Meme = saveMeme()
         
         let activityViewController = UIActivityViewController(activityItems: [meme.memedImage], applicationActivities: nil)
         
         self.presentViewController(activityViewController, animated: true, completion: nil)
-        
-//        let memeEditorViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
-//        
-//        self.presentViewController(memeEditorViewController, animated: true, completion: nil)
+
     }
     
 }
