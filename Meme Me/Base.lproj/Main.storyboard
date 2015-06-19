@@ -174,11 +174,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pcf-mI-1xe">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pcf-mI-1xe">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Pcf-mI-1xe" secondAttribute="trailing" constant="-16" id="KNV-iw-Tgj"/>
+                            <constraint firstItem="Pcf-mI-1xe" firstAttribute="top" secondItem="lyE-8a-yzQ" secondAttribute="topMargin" id="SLL-pA-kkE"/>
+                            <constraint firstItem="Pcf-mI-1xe" firstAttribute="leading" secondItem="lyE-8a-yzQ" secondAttribute="leadingMargin" constant="-16" id="vdx-A5-4Ow"/>
+                            <constraint firstItem="7Gx-eh-zi5" firstAttribute="top" secondItem="Pcf-mI-1xe" secondAttribute="bottom" id="z4q-aI-ayW"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="memeImageView" destination="Pcf-mI-1xe" id="xPF-fU-oFf"/>
@@ -266,7 +272,7 @@
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="YFa-if-7Qd"/>
                                     <barButtonItem image="camera-icon" id="P1l-P4-tHv">
                                         <connections>
-                                            <action selector="takePicture:" destination="vXZ-lx-hvc" id="Qka-oh-TDi"/>
+                                            <action selector="takeAPhoto:" destination="vXZ-lx-hvc" id="3Fb-ur-0B6"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="KDz-0T-1kf"/>
@@ -310,6 +316,7 @@
                     </view>
                     <connections>
                         <outlet property="bottomTextField" destination="u3K-Xq-7WJ" id="oWU-VA-xhM"/>
+                        <outlet property="cameraButton" destination="P1l-P4-tHv" id="5T8-4Q-04x"/>
                         <outlet property="imagePickerView" destination="UQE-dd-Ccj" id="mKN-Mh-5Ts"/>
                         <outlet property="memeEditorNavigationBar" destination="d16-vC-ajJ" id="3ln-Ul-tSQ"/>
                         <outlet property="memeEditorUIToolbar" destination="2ly-1l-xBI" id="syh-Ca-KQD"/>

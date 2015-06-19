@@ -16,6 +16,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var memeEditorNavigationBar: UINavigationBar!
     @IBOutlet weak var memeEditorUIToolbar: UIToolbar!
     @IBOutlet weak var shareMemeBarButton: UIBarButtonItem!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         bottomTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.textAlignment = NSTextAlignment.Center
         bottomTextField.attributedPlaceholder = NSAttributedString(string: "BOTTOM", attributes: memeTextAttributes)
+        
+        // Disables the camera button if its not available
+        cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         
     }
     
@@ -66,6 +70,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func takeAPhoto(sender: UIBarButtonItem) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        self.presentViewController(imagePicker, animated: true, completion: nil)
+    }
 
     @IBAction func pickingAnImage(sender: AnyObject) {
         let imagePicker = UIImagePickerController()
